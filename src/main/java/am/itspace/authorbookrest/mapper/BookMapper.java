@@ -6,6 +6,7 @@ import am.itspace.authorbookrest.entity.Author;
 import am.itspace.authorbookrest.entity.Book;
 import am.itspace.authorbookrest.exception.AuthorNotFoundException;
 import am.itspace.authorbookrest.repository.AuthorRepository;
+import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,6 @@ public abstract class BookMapper {
 
     protected Author findAuthorById(int id) {
         return authorRepository.findById(id).orElseThrow(()-> new AuthorNotFoundException("Author not found with " + id +" id"));
-
-
     }
 
 }
