@@ -1,4 +1,4 @@
-package am.itspace.authorbookrest.service.security;
+package am.itspace.authorbookrest.security;
 
 
 import am.itspace.authorbookrest.entity.User;

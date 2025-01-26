@@ -3,7 +3,7 @@ package am.itspace.authorbookrest.endpoint;
 import am.itspace.authorbookrest.dto.AuthorDto;
 import am.itspace.authorbookrest.dto.SaveAuthorRequest;
 import am.itspace.authorbookrest.service.AuthorService;
-import am.itspace.authorbookrest.service.security.CurrentUser;
+import am.itspace.authorbookrest.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

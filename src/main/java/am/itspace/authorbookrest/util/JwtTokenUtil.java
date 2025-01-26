@@ -54,6 +54,7 @@ public class JwtTokenUtil {
 
     public String generateToken(String email) {
         Map<String, Object> claims = new HashMap<>();
+//        claims.put("phone", "098765432");
         return doGenerateToken(claims, email);
     }
 

@@ -1,7 +1,7 @@
 package am.itspace.authorbookrest.config;
 
 import am.itspace.authorbookrest.filter.JWTAuthenticationTokenFilter;
-import am.itspace.authorbookrest.service.security.JwtAuthenticationEntryPoint;
+import am.itspace.authorbookrest.security.JwtAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

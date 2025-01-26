@@ -1,5 +1,6 @@
 package am.itspace.authorbookrest.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -24,6 +25,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Column(columnDefinition = "varchar(100)", nullable = false)
     private String surname;
     private String email;
     private String password;
