@@ -1,6 +1,6 @@
 package am.itspace.authorbookrest.endpoint;
 
-import am.itspace.authorbookrest.dto.AuthorDto;
+import am.itspace.authorbookrest.dto.AuthorResponseDto;
 import am.itspace.authorbookrest.dto.SaveAuthorRequest;
 import am.itspace.authorbookrest.service.AuthorService;
 import am.itspace.authorbookrest.security.CurrentUser;
@@ -27,14 +27,14 @@ public class AuthorEndpoint {
     private final AuthorService authorService;
 
     @GetMapping(value = "/authors", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<AuthorDto>> getAll(@AuthenticationPrincipal CurrentUser currentUser) {
+    public ResponseEntity<List<AuthorResponseDto>> getAll(@AuthenticationPrincipal CurrentUser currentUser) {
       log.info("request from {} user", currentUser.getUsername());
 
         return ResponseEntity.ok(authorService.findAll());
     }
 
     @GetMapping("/authors/{id}")
-    public ResponseEntity<AuthorDto> getById(@PathVariable("id") int id) {
+    public ResponseEntity<AuthorResponseDto> getById(@PathVariable("id") int id) {
         return ResponseEntity.ok(authorService.findById(id));
     }
 
@@ -45,7 +45,7 @@ public class AuthorEndpoint {
                     .status(HttpStatus.CONFLICT)
                     .build();
         }
-        AuthorDto authorFromDb = authorService.save(authorRequest);
+        AuthorResponseDto authorFromDb = authorService.save(authorRequest);
 
         return ResponseEntity.ok(authorFromDb);
     }

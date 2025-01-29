@@ -1,6 +1,5 @@
 package am.itspace.authorbookrest.entity;
 
-import am.itspace.authorbookrest.dto.AuthorDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
