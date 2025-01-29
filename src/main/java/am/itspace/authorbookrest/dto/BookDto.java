@@ -16,7 +16,7 @@ public class BookDto {
     private int id;
     private String title;
     private double price;
-    private AuthorDto author;
+    private AuthorResponseDto author;
     private Date createdAt;
 
 }

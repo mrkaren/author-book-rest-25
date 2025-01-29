@@ -1,6 +1,6 @@
 package am.itspace.authorbookrest.service.impl;
 
-import am.itspace.authorbookrest.dto.AuthorDto;
+import am.itspace.authorbookrest.dto.AuthorResponseDto;
 import am.itspace.authorbookrest.dto.SaveAuthorRequest;
 import am.itspace.authorbookrest.entity.Author;
 import am.itspace.authorbookrest.exception.AuthorNotFoundException;
@@ -25,7 +25,7 @@ public class AuthorServiceImpl implements AuthorService {
     private final AuthorMapper authorMapper;
 
     @Override
-    public List<AuthorDto> findAll() {
+    public List<AuthorResponseDto> findAll() {
         List<Author> authors = authorRepository.findAll();
         return authorMapper.toDtoList(authors);
     }
@@ -36,7 +36,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorDto save(SaveAuthorRequest authorRequest) {
+    public AuthorResponseDto save(SaveAuthorRequest authorRequest) {
         Author author = authorRepository.save(authorMapper.toEntity(authorRequest));
 
         return authorMapper.toDto(author);
@@ -51,7 +51,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorDto findById(int id) {
+    public AuthorResponseDto findById(int id) {
         Author author = authorRepository
                 .findById(id)
                 .orElse(null);
