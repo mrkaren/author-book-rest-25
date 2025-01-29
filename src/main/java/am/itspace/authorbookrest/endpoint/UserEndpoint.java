@@ -31,7 +31,7 @@ public class UserEndpoint {
 
     private final UserMapper userMapper;
 
-    @PostMapping("/authorization")
+    @PostMapping("/login")
     public ResponseEntity<UserAuthResponse> login(@RequestBody UserAuthRequest userAuthRequest) {
 
         Optional<User> byEmail = userService.findByEmail(userAuthRequest.getEmail());
