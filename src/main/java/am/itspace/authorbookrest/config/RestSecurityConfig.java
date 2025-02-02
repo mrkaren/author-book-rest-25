@@ -32,7 +32,10 @@ public class RestSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.POST,"/user/auth").permitAll()
+                .requestMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers(HttpMethod.POST,"/user/login").permitAll()
                 .requestMatchers(HttpMethod.POST,"/user/register").permitAll()
                 .requestMatchers(HttpMethod.GET,"/authors/**").authenticated()
                 .anyRequest().authenticated();

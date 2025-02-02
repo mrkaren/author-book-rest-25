@@ -4,6 +4,7 @@ import am.itspace.authorbookrest.dto.AuthorResponseDto;
 import am.itspace.authorbookrest.dto.SaveAuthorRequest;
 import am.itspace.authorbookrest.service.AuthorService;
 import am.itspace.authorbookrest.security.CurrentUser;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,7 @@ public class AuthorEndpoint {
 
     private final AuthorService authorService;
 
+    @SecurityRequirement(name = "bearerAuth")
     @GetMapping(value = "/authors", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<AuthorResponseDto>> getAll(@AuthenticationPrincipal CurrentUser currentUser) {
       log.info("request from {} user", currentUser.getUsername());

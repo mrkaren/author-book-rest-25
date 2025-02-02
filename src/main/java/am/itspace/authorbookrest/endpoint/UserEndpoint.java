@@ -7,6 +7,9 @@ import am.itspace.authorbookrest.entity.User;
 import am.itspace.authorbookrest.mapper.UserMapper;
 import am.itspace.authorbookrest.service.UserService;
 import am.itspace.authorbookrest.util.JwtTokenUtil;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,6 +61,10 @@ public class UserEndpoint {
     }
 
     @PostMapping("/register")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "409", description = "Email already exists"),
+            @ApiResponse(responseCode = "200", description = "Registration is success")
+    })
     public ResponseEntity<?> register(@RequestBody SaveUserRequest saveUserRequest) {
         if (userService.findByEmail(saveUserRequest.getEmail()).isPresent()) {
             return ResponseEntity

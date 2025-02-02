@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+//@Profile(value = {"dev","prod"})
+//@ConditionalOnProperty(value = "run.security", havingValue = "true")
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
